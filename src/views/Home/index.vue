@@ -44,7 +44,7 @@ export default {
     .header-logo {
       width: 92px;
       height: 28px;
-      background: url('../../assets/icon/header-logo.png'), no-repeat;
+      background: url('../../assets/icon/header-logo.png') no-repeat;
       background-size: 100%;
     }
 
