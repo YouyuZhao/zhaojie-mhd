@@ -18,22 +18,14 @@
     <Swiper
       @change='onChange'
       class='my-swiper'
+      v-if='bannerList.length>0'
     >
-      <SwiperItem>
+      <SwiperItem
+        v-for='item in bannerList'
+        :key='item.id'
+      >
         <img
-          src="https://img.manhuadao.cn/upload/AdGroup201906/9315f7dd68b346928219f29bd9c89e60.jpg"
-          alt
-        />
-      </SwiperItem>
-      <SwiperItem>
-        <img
-          src="https://img.manhuadao.cn/upload/AdGroup201903/22b43c03a0f943cda001c5338fe0ddd9.jpg"
-          alt
-        />
-      </SwiperItem>
-      <SwiperItem>
-        <img
-          src="https://img.manhuadao.cn/upload/AdGroup202003/dda50e4233e34186910fd490aea1cd91.jpg"
+          :src='item.imageurl'
           alt
         />
       </SwiperItem>
@@ -46,6 +38,7 @@
 // import Swiper from '@/components/Swiper/Swiper'
 // import SwiperItem from '@/components/Swiper/SwiperItem'
 import { Swiper, SwiperItem } from '@/components/Swiper'
+import { getBanner } from '@/api/cartoon'
 
 export default {
   name: 'Home',
@@ -55,10 +48,30 @@ export default {
     SwiperItem
   },
 
+  data () {
+    return {
+      // 需要一个数据
+      bannerList: []
+    }
+  },
+
   methods: {
     onChange (index) {
       console.log('hello', index + 1)
     }
+  },
+
+  created () {
+    getBanner().then(res => {
+      console.log(res)
+      if (res.code === 200) {
+        this.bannerList = res.info
+      } else {
+        alert(res.code_msg)
+      }
+    }).catch(err => {
+      alert('网络异常，稍后重试', err)
+    })
   }
 }
 </script>
