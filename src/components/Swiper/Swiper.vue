@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper-container">
+  <div class="swiper-container" ref='swiper'>
     <div class="swiper-wrapper">
       <!-- <div class="swiper-slide">Slide 1</div>
       <div class="swiper-slide">Slide 2</div>
@@ -30,8 +30,10 @@ export default {
   },
 
   mounted () {
+    // console.log(this.$refs.swiper)
+    // 还可以使用this.$el
     const that = this
-    new Swiper('.swiper-container', {  // eslint-disable-line
+    new Swiper(this.$refs.swiper, {  // eslint-disable-line
       // 如果需要分页器
       pagination: {
         el: '.swiper-pagination'

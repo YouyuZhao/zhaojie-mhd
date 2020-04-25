@@ -15,17 +15,30 @@
     <!-- 首页头部end -->
 
     <!-- 轮播图begin -->
-    <Swiper @change='onChange' class='my-swiper'>
-      <SwiperItem>1</SwiperItem>
-      <SwiperItem>2</SwiperItem>
-      <SwiperItem>3</SwiperItem>
+    <Swiper
+      @change='onChange'
+      class='my-swiper'
+    >
+      <SwiperItem>
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup201906/9315f7dd68b346928219f29bd9c89e60.jpg"
+          alt
+        />
+      </SwiperItem>
+      <SwiperItem>
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup201903/22b43c03a0f943cda001c5338fe0ddd9.jpg"
+          alt
+        />
+      </SwiperItem>
+      <SwiperItem>
+        <img
+          src="https://img.manhuadao.cn/upload/AdGroup202003/dda50e4233e34186910fd490aea1cd91.jpg"
+          alt
+        />
+      </SwiperItem>
     </Swiper>
     <!-- 轮播图end -->
-    <Swiper @change='onChange' class='my-swiper'>
-      <SwiperItem>1</SwiperItem>
-      <SwiperItem>2</SwiperItem>
-      <SwiperItem>3</SwiperItem>
-    </Swiper>
   </div>
 </template>
 
@@ -86,8 +99,8 @@ export default {
     }
   }
 
-  .my-swiper img{
-    width:100%
+  .my-swiper img {
+    width: 100%;
   }
 }
 </style>
